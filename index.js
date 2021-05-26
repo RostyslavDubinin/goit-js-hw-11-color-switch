@@ -21,10 +21,15 @@ function setRandomColor(){
   document.body.style.backgroundColor = randomColor
 };
 
-let interval = undefined;
+let interval = null;
 
 startBtn.addEventListener('click', e => interval = interval ?
-interval :
-setInterval(() => setRandomColor(), 1000));
+  interval :
+  setInterval(() => setRandomColor(), 1000))
 
-stopBtn.addEventListener('click', e => clearInterval(interval));
+stopBtn.addEventListener('click', stop)
+
+function stop(e) { 
+  clearInterval(interval);
+  interval = null;
+}
